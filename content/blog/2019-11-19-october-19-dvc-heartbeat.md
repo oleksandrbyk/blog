@@ -9,13 +9,11 @@ descriptionLong: >-
   community takeaways, and everything along the way.Some of those are related to
   our brainchild DVC and its journey. The others are a collection of exciting
   stories and ideas centered around ML best practices and workflow.
-picture: /uploads/z5vm9h7pr9ypydncewk8gw.jpg
+picture: /uploads/ai5nvswitpmmyo5u6yckna.jpg
 tags:
   - News Links
 author: ../authors/svetlana_grinchenko.md
 ---
-
-
 ## News and links
 
 Hackathon and Devsprints
@@ -25,8 +23,6 @@ Ramon's talk
 DVC meetup
 
 DMitry's talk in Europe and Russia
-
-
 
 Every month our team is excited to discover new great pieces of content
 addressing some of the burning ML issues. Here are some of the links that
