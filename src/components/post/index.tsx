@@ -7,17 +7,18 @@ import { useWindowScroll, useWindowSize } from 'react-use';
 import { IBlogPostData } from '../../templates/blog-post';
 
 import { getCommentsCount } from '../../api';
-import { siteLinks } from '../../data';
+// import { siteLinks } from '../../data';
 import { pluralizeComments } from '../../utils/i18n';
+import { renderAst } from '../../utils/renderAst';
 
-import Markdown from '../markdown';
+// import Markdown from '../markdown';
 import Meta from '../meta';
 import PseudoButton from '../pseudo-button';
 import Share from '../share';
 
 import styles from './styles.module.css';
 
-function Post({ html, timeToRead, frontmatter, fields }: IBlogPostData) {
+function Post({ htmlAst, timeToRead, frontmatter, fields }: IBlogPostData) {
   const {
     title,
     date,
@@ -100,9 +101,8 @@ function Post({ html, timeToRead, frontmatter, fields }: IBlogPostData) {
           )}
         </>
       )}
-      <div className={styles.content}>
-        <Markdown html={html} />
-      </div>
+      <div className={styles.content}>{renderAst(htmlAst)}</div>
+      {/*<Markdown html={html} />*/}
       {tags && (
         <div className={styles.tags}>
           {tags.map(tag => (

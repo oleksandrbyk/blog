@@ -37,6 +37,7 @@ export interface IBlogPostFrontmatter {
 export interface IBlogPostData {
   id: string;
   html: string;
+  htmlAst: string;
   timeToRead: string;
   fields: {
     slug: string;
@@ -80,6 +81,7 @@ export const pageQuery = graphql`
       id
       excerpt(format: HTML)
       html
+      htmlAst
       timeToRead
       fields {
         slug
