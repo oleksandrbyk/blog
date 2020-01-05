@@ -85,7 +85,7 @@ exports.onPostBuild = async function({ graphql }) {
     throw new Error(result.errors);
   }
 
-  const posts = result.data.allMarkdownRemark.edges.map(
+  const posts = result.data.allMdx.edges.map(
     ({
       node: {
         fields: { slug },

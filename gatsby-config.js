@@ -84,27 +84,27 @@ const plugins = [
         `,
       feeds: [
         {
-          serialize: ({ query: { site, allMarkdownRemark } }) => {
-            return allMarkdownRemark.edges.map(edge => {
+          serialize: ({ query: { site, allMdx } }) => {
+            return allMdx.edges.map(edge => {
               return Object.assign({}, edge.node.frontmatter, {
                 description:
                   edge.node.descriptionLong || edge.node.descriptionLong,
                 date: edge.node.frontmatter.date,
                 url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                 guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                custom_elements: [{ 'content:encoded': edge.node.html }]
+                custom_elements: [{ 'content:encoded': edge.node.body }]
               });
             });
           },
           query: `
               {
-                allMarkdownRemark(
+                allMdx(
                   sort: { fields: [frontmatter___date], order: DESC }
                   filter: { fileAbsolutePath: { regex: "/content/blog/" } }
                 ) {
                   edges {
                     node {
-                      html
+                      body
                       fields {
                         slug
                       }
