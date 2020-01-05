@@ -44,7 +44,7 @@ const remarkPlugins = [
   'gatsby-remark-copy-linked-files',
   'gatsby-remark-smartypants',
   netlifyCMSPathConfig
-]
+];
 
 const plugins = [
   'gatsby-plugin-twitter',

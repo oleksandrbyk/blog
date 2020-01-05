@@ -8,6 +8,6 @@ exports.onPreRenderHTML = ({ getHeadComponents, replaceHeadComponents }) => {
       async
       src="//embed.redditmedia.com/widgets/platform.js"
       charSet="UTF-8"
-    />,
+    />
   ]);
 };
