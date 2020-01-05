@@ -12,6 +12,39 @@ const title = 'Data Version Control · DVC';
 const keywords = 'data, machine learning models management, datasets, git';
 const description =
   'Data Version Control Blog. We write about machine learning workflow. From data versioning and processing to model productionization. We share our news, findings, interesting reads, community takeaways.';
+const remarkPlugins = [
+  {
+    resolve: 'gatsby-remark-embed-gist',
+    options: {
+      includeDefaultCss: true
+    }
+  },
+  {
+    resolve: 'gatsby-remark-relative-images'
+  },
+  {
+    resolve: 'gatsby-remark-images',
+    options: {
+      maxWidth: 700,
+      withWebp: true
+    }
+  },
+  'gatsby-remark-responsive-iframe',
+  {
+    resolve: 'gatsby-remark-prismjs',
+    options: {
+      languageExtensions: [
+        {
+          language: 'dvc',
+          definition: dvc
+        }
+      ]
+    }
+  },
+  'gatsby-remark-copy-linked-files',
+  'gatsby-remark-smartypants',
+  netlifyCMSPathConfig
+]
 
 const plugins = [
   'gatsby-plugin-twitter',
@@ -43,43 +76,18 @@ const plugins = [
       name: 'images'
     }
   },
-  'gatsby-plugin-mdx',
   {
-    resolve: 'gatsby-transformer-remark',
+    resolve: 'gatsby-plugin-mdx',
     options: {
       plugins: [
         {
-          resolve: 'gatsby-remark-embed-gist',
+          resolve: 'gatsby-transformer-remark',
           options: {
-            includeDefaultCss: true
+            plugins: remarkPlugins
           }
-        },
-        {
-          resolve: 'gatsby-remark-relative-images'
-        },
-        {
-          resolve: 'gatsby-remark-images',
-          options: {
-            maxWidth: 700,
-            withWebp: true
-          }
-        },
-        'gatsby-remark-responsive-iframe',
-        {
-          resolve: 'gatsby-remark-prismjs',
-          options: {
-            languageExtensions: [
-              {
-                language: 'dvc',
-                definition: dvc
-              }
-            ]
-          }
-        },
-        'gatsby-remark-copy-linked-files',
-        'gatsby-remark-smartypants',
-        netlifyCMSPathConfig
-      ]
+        }
+      ],
+      gatsbyRemarkPlugins: remarkPlugins
     }
   },
   'gatsby-plugin-typescript',
