@@ -1,17 +1,17 @@
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 
 import styles from './styles.module.css';
 
 interface IMarkdownProps {
-  html: string;
+  body: string;
 }
 
-function Markdown({ html }: IMarkdownProps) {
+function Markdown({ body }: IMarkdownProps) {
   return (
-    <div
-      className={styles.wrapper}
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <div className={styles.wrapper}>
+      <MDXRenderer>{body}</MDXRenderer>
+    </div>
   );
 }
 

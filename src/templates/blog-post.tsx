@@ -36,7 +36,7 @@ export interface IBlogPostFrontmatter {
 
 export interface IBlogPostData {
   id: string;
-  html: string;
+  body: string;
   timeToRead: string;
   fields: {
     slug: string;
@@ -46,7 +46,7 @@ export interface IBlogPostData {
 
 interface IBlogPostTemplateProps {
   data: {
-    markdownRemark: IBlogPostData;
+    mdx: IBlogPostData;
   };
   pageContext: {
     next: IBlogPostData;
@@ -54,20 +54,18 @@ interface IBlogPostTemplateProps {
   };
 }
 
-function BlogPostTemplate({ data }: IBlogPostTemplateProps) {
-  const post = data.markdownRemark;
-
+function BlogPostTemplate({ data: { mdx } }: IBlogPostTemplateProps) {
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description}
+        title={mdx.frontmatter.title}
+        description={mdx.frontmatter.description}
         image={
-          post.frontmatter.picture &&
-          post.frontmatter.picture.childImageSharp.fluid.src
+          mdx.frontmatter.picture &&
+          mdx.frontmatter.picture.childImageSharp.fluid.src
         }
       />
-      <Post {...post} />
+      <Post {...mdx} />
     </Layout>
   );
 }
@@ -76,10 +74,9 @@ export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(format: HTML)
-      html
+      body
       timeToRead
       fields {
         slug

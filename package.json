@@ -35,11 +35,14 @@
     ]
   },
   "dependencies": {
+    "@mdx-js/mdx": "^1.5.3",
+    "@mdx-js/react": "^1.5.3",
     "@reach/portal": "^0.5.0",
     "@reach/tooltip": "^0.5.4",
     "classnames": "^2.2.6",
     "gatsby": "^2.17.11",
     "gatsby-image": "^2.2.31",
+    "gatsby-plugin-mdx": "^1.0.64",
     "gatsby-plugin-twitter": "^2.1.17",
     "gatsby-remark-embed-gist": "^1.1.9",
     "gatsby-remark-relative-images": "^0.2.3",

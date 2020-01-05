@@ -7,7 +7,6 @@ import { useWindowScroll, useWindowSize } from 'react-use';
 import { IBlogPostData } from '../../templates/blog-post';
 
 import { getCommentsCount } from '../../api';
-import { siteLinks } from '../../data';
 import { pluralizeComments } from '../../utils/i18n';
 
 import Markdown from '../markdown';
@@ -17,7 +16,7 @@ import Share from '../share';
 
 import styles from './styles.module.css';
 
-function Post({ html, timeToRead, frontmatter, fields }: IBlogPostData) {
+function Post({ body, timeToRead, frontmatter, fields }: IBlogPostData) {
   const {
     title,
     date,
@@ -101,7 +100,7 @@ function Post({ html, timeToRead, frontmatter, fields }: IBlogPostData) {
         </>
       )}
       <div className={styles.content}>
-        <Markdown html={html} />
+        <Markdown body={body} />
       </div>
       {tags && (
         <div className={styles.tags}>

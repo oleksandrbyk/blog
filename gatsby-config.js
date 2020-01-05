@@ -43,6 +43,7 @@ const plugins = [
       name: 'images'
     }
   },
+  'gatsby-plugin-mdx',
   {
     resolve: 'gatsby-transformer-remark',
     options: {
