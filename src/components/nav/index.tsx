@@ -11,6 +11,7 @@ function Nav() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.links}>
+        // @ts-ignore
         {topMenuItems.map(({ title, href, current }) => (
           <a
             className={cn(styles.link, current && styles.current)}

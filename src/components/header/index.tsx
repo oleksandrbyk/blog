@@ -13,6 +13,7 @@ interface IHeaderProps {
   index?: boolean;
 }
 
+// @ts-ignore
 function Header({ index }: IHeaderProps) {
   const { y } = useWindowScroll();
 
