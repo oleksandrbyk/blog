@@ -3,6 +3,84 @@ const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { siteMetadata } = require('./gatsby-config');
 
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const getHTMLForInlineBlock = data =>
+    `
+      <a href="${data[0]}" class="external-link-preview">
+        <section class="elp-content-holder">
+          <div class="elp-description-holder">
+            <h4 class="elp-title">${data[1]}</h4>
+            <div class="elp-description">${data[2]}</div>
+            <div class="elp-link">${data[3]}</div>
+          </div>
+          <div class="elp-image-holder">
+            <img src="${data[4]}" />
+          </div>
+        </section>
+      </a>
+    `;
+
+  const resolveInlineBlocks = htmlData => {
+    const patt = new RegExp(
+      [
+        /<p>[\s\t\n]*/, // <p>
+        /<ExternalLink[\s\t\n]+/, // <ExternalLink
+        /href="([^"]*)"[\s\t\n]+/, // href="https://veekaybee.github.io/2019/02/13/data-science-is-different/"
+        /title="([^"]*)"[\s\t\n]+/, // title="Data science is different now"
+        /description="([^"]*)"[\s\t\n]+/, // description="Woman holding a balance, Vermeer 1664 What do you think of ..."
+        /name="([^"]*)"[\s\t\n]+/, // name="veekaybee.github.io"
+        /picture="([^"]*)"[\s\t\n]+/, // picture="/uploads/images/2019-03-05/data-science-is-different-now.png"
+        /\/>[\s\t\n]*/, // />
+        /<\/p>/ // </p>
+      ]
+        .map(r => r.source)
+        .join('')
+    );
+    let match;
+    while ((match = htmlData.match(patt))) {
+      const htmlForInlineBlock = getHTMLForInlineBlock(match.slice(1, 6));
+      htmlData = htmlData.replace(patt, htmlForInlineBlock);
+    }
+    return htmlData;
+  };
+
+  actions.createFieldExtension({
+    name: 'proxyResolveInlineBlock',
+    args: {
+      from: { type: 'Int!' },
+      to: { type: 'Int!' }
+    },
+    extend: (options, previousFieldConfig) => {
+      return {
+        resolve: async (source, args, context, info) => {
+          await context.nodeModel.prepareNodes(
+            info.parentType, // MarkdownRemark
+            { html: true }, // querying for html field
+            { html: true }, // resolve this field
+            [info.parentType.name] // The types to use are these
+          );
+
+          const newSource = await context.nodeModel.runQuery({
+            type: info.parentType,
+            query: { filter: { id: { eq: source.id } } },
+            firstOnly: true
+          });
+
+          return resolveInlineBlocks(newSource.__gatsby_resolved.html);
+        }
+      };
+    }
+  });
+
+  actions.createTypes([
+    `
+      type MarkdownRemark implements Node @infer {
+        body: String! @proxyResolveInlineBlock(from: 0, to: 0)
+      }
+    `
+  ]);
+};
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 

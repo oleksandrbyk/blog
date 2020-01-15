@@ -79,7 +79,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(format: HTML)
-      html
+      html: body
       timeToRead
       fields {
         slug
