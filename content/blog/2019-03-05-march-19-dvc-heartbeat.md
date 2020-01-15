@@ -36,18 +36,13 @@ checking.
 - **[Data science is different now](https://veekaybee.github.io/2019/02/13/data-science-is-different/)
   by [Vicki Boykis](https://veekaybee.github.io/)**
 
-<a href="https://veekaybee.github.io/2019/02/13/data-science-is-different/" class="external-link-preview">
-  <section class="elp-content-holder">
-    <div class="elp-description-holder">
-      <h4 class="elp-title">Data science is different now</h4>
-      <div class="elp-description">Woman holding a balance, Vermeer 1664 What do you think of when you read the phrase 'data science'? It's probably some…</div>
-      <div class="elp-link">veekaybee.github.io</div>
-    </div>
-    <div class="elp-image-holder">
-      <img src="/uploads/images/2019-03-05/data-science-is-different-now.png" />
-    </div>
-  </section>
-</a>
+<ExternalLink
+  href="https://veekaybee.github.io/2019/02/13/data-science-is-different/"
+  title="Data science is different now"
+  description="Woman holding a balance, Vermeer 1664 What do you think of when you read the phrase 'data science'? It's probably some…"
+  name="veekaybee.github.io"
+  picture="/uploads/images/2019-03-05/data-science-is-different-now.png"
+/>
 
 > What is becoming clear is that, in the late stage of the hype cycle, data
 > science is asymptotically moving closer to engineering, and the
@@ -58,18 +53,13 @@ checking.
 - **[Data Versioning](https://emilygorcenski.com/post/data-versioning/) by
   [Emily F. Gorcenski](https://emilygorcenski.com/)**
 
-<a href="https://emilygorcenski.com/post/data-versioning/" class="external-link-preview">
-  <section class="elp-content-holder">
-    <div class="elp-description-holder">
-      <h4 class="elp-title">Data Versioning</h4>
-      <div class="elp-description">Productionizing machine learning/AI/data science is a challenge. Not only are the outputs of machine-learning…</div>
-      <div class="elp-link">emilygorcenski.com</div>
-    </div>
-    <div class="elp-image-holder">
-      <img src="/uploads/images/2019-03-05/data-versioning.jpeg" />
-    </div>
-  </section>
-</a>
+<ExternalLink
+  href="https://emilygorcenski.com/post/data-versioning/"
+  title="Data Versioning"
+  description="Productionizing machine learning/AI/data science is a challenge. Not only are the outputs of machine-learning…"
+  name="emilygorcenski.com"
+  picture="/uploads/images/2019-03-05/data-versioning.jpeg"
+/>
 
 > I want to explore how the degrees of freedom in versioning machine learning
 > systems poses a unique challenge. I’ll identify four key axes on which machine
@@ -79,18 +69,13 @@ checking.
 - **[Reproducibility in Machine Learning](https://blog.mi.hdm-stuttgart.de/index.php/2019/02/26/reproducibility-in-ml/)
   by [Pascal Fecht](https://blog.mi.hdm-stuttgart.de/index.php/author/pf023/)**
 
-<a href="https://emilygorcenski.com/post/data-versioning/" class="external-link-preview">
-  <section class="elp-content-holder">
-    <div class="elp-description-holder">
-      <h4 class="elp-title">Reproducibility in Machine Learning | Computer Science Blog</h4>
-      <div class="elp-description">The rise of Machine Learning has led to changes across all areas of computer science. From a very abstract point of…</div>
-      <div class="elp-link">blog.mi.hdm-stuttgart.de</div>
-    </div>
-    <div class="elp-image-holder">
-      <img src="/uploads/images/2019-03-05/reproducibility-in-machine-learning.jpeg" />
-    </div>
-  </section>
-</a>
+<ExternalLink
+  href="https://emilygorcenski.com/post/data-versioning/"
+  title="Reproducibility in Machine Learning | Computer Science Blog"
+  description="The rise of Machine Learning has led to changes across all areas of computer science. From a very abstract point of…"
+  name="blog.mi.hdm-stuttgart.de"
+  picture="/uploads/images/2019-03-05/reproducibility-in-machine-learning.jpeg"
+/>
 
 > ...the objective of this post is not to philosophize about the dangers and
 > dark sides of AI. In fact, this post aims to work out common challenges in
